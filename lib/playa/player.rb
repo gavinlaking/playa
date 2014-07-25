@@ -2,12 +2,20 @@ require 'audite'
 
 module Playa
   class Player
-    def initialize(track, &block)
+    attr_reader :track
+
+    def self.play(track)
+      new(track).start
+    end
+
+    def initialize(track = nil)
       @track = track
     end
 
-    def load
-      @_loaded ||= player.load(track.filename)
+    def start
+      open
+
+      play
     end
 
     def play
@@ -26,10 +34,9 @@ module Playa
       player.forward(5)
     end
 
-    def pause
+    def toggle
       player.toggle
     end
-    alias_method :unpause, :pause
 
     def playing?
       player.active || false
@@ -45,9 +52,8 @@ module Playa
 
     private
 
-    attr_reader :track
-
-    def audite_events
+    def open
+      player.load(track.filename)
     end
 
     def player
