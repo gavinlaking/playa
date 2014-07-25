@@ -1,7 +1,6 @@
 require 'simplecov'
 require 'pry'
 require 'minitest/autorun'
-require 'minitest/pride'
 require 'minitest/hell'
 
 SimpleCov.start do

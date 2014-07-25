@@ -2,13 +2,30 @@
 
 Plays mp3s from a directory. An example app using Vedeu.
 
-## Installation
 
-    $ gem install playa
+## Requirements
+
+- Portaudio >= 19
+- Mpg123 >= 1.14
+
+
+### OSX Installation
+
+    brew install portaudio
+    brew install mpg123
+    gem install playa
+
+### Debian / Ubuntu Install
+
+    apt-get install libjack0 libjack-dev
+    apt-get install libportaudiocpp0 portaudio19-dev libmpg123-dev
+    gem install playa
+
 
 ## Usage
 
-    $ playa
+    playa
+
 
 ## Contributing
 
