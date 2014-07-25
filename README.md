@@ -1,29 +1,40 @@
 # Playa
 
-TODO: Write a gem description
+Plays mp3s from a directory. An example app using Vedeu.
 
-## Installation
 
-Add this line to your application's Gemfile:
+## Requirements
 
-    gem 'playa'
+- Portaudio >= 19
+- Mpg123 >= 1.14
 
-And then execute:
 
-    $ bundle
+### OSX Installation
 
-Or install it yourself as:
+    brew install portaudio
+    brew install mpg123
+    gem install playa
 
-    $ gem install playa
+### Debian / Ubuntu Install
+
+    apt-get install libjack0 libjack-dev
+    apt-get install libportaudiocpp0 portaudio19-dev libmpg123-dev
+    gem install playa
+
 
 ## Usage
 
-TODO: Write usage instructions here
+    playa
+
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/playa/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+1. Fork it ( https://github.com/gavinlaking/playa/fork )
+2. Clone it
+3. `bundle`
+4. `rake` or `bundle exec guard`
+5. Create your feature branch (`git checkout -b my-new-feature`)
+6. Write some tests, write some code, have some fun
+7. Commit your changes (`git commit -am 'Add some feature'`)
+8. Push to the branch (`git push origin my-new-feature`)
+9. Create a new Pull Request
