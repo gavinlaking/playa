@@ -23,7 +23,7 @@ module Playa
     end
 
     def title
-      id_tags.tag.title || ''
+      id_tags.tag.title || filename
     end
 
     def artist
