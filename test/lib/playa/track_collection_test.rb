@@ -3,6 +3,12 @@ require 'playa/track_collection'
 
 module Playa
   describe TrackCollection do
+    describe '#initialize' do
+      it 'returns an instance of itself' do
+        TrackCollection.new.must_be_instance_of(TrackCollection)
+      end
+    end
+
     describe '#tracks' do
       it 'returns a collection of Track objects' do
         collection = TrackCollection.new
