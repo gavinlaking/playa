@@ -1,6 +1,9 @@
+[![Code Climate](https://codeclimate.com/github/gavinlaking/playa.png)](https://codeclimate.com/github/gavinlaking/playa)
+[![Build Status](https://travis-ci.org/gavinlaking/playa.svg?branch=master)](https://travis-ci.org/gavinlaking/playa)
+
 # Playa
 
-Plays mp3s from a directory. An example app using Vedeu.
+Plays mp3s from a directory using Ruby. An example app using Vedeu.
 
 
 ## Requirements
@@ -24,7 +27,13 @@ Plays mp3s from a directory. An example app using Vedeu.
 
 ## Usage
 
+Play all .mp3 files in the current working directory:
+
     playa
+
+or, specify a directory to play from:
+
+    playa /path/to/mp3s
 
 
 ## Contributing
