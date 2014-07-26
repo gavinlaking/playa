@@ -6,4 +6,12 @@ trap('INT') { exit! }
 
 require 'playa'
 
-Playa::Application.start(ARGV.dup)
+args = ARGV.dup
+
+play_directory = if args.empty? || args.nil?
+  Dir.pwd
+else
+  args
+end
+
+Playa::Application.start(args)
