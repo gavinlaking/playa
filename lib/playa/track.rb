@@ -1,7 +1,7 @@
 require 'mp3info'
 
 module Playa
-    class Track
+  class Track
     def initialize(file)
       @file = file
     end
@@ -14,7 +14,7 @@ module Playa
         album:        album,
         track_number: track_number,
         duration:     duration,
-        bitrate:      bitrate,
+        bitrate:      bitrate
       }
     end
 

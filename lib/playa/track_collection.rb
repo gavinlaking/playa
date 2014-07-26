@@ -7,7 +7,7 @@ module Playa
     end
 
     def tracks
-      @_tracks ||= files.inject([]) do |acc, file|
+      @_tracks ||= files.reduce([]) do |acc, file|
         acc << Track.new(file)
         acc
       end

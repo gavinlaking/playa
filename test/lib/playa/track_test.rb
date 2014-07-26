@@ -4,37 +4,35 @@ require 'ostruct'
 module Playa
   describe Track do
     let(:file) { '/some/path/electro.mp3' }
-    let(:tag)  {
-      OpenStruct.new({
+    let(:tag)  do
+      OpenStruct.new(
         title:    'eee-lectro',
         artist:   'Gavin Laking + Various',
         album:    'That night at Sankeys',
-        tracknum: 3,
-      })
-    }
-    let(:mp3info) {
-      OpenStruct.new({
+        tracknum: 3
+      )
+    end
+    let(:mp3info) do
+      OpenStruct.new(
         filename: '/some/path/electro.mp3',
         tag:      tag,
         length:   3623.0270625,
         bitrate:  320
-      })
-    }
+      )
+    end
     let(:track) { Track.new(file) }
 
     describe '#attributes' do
       it 'returns a collection of attributes' do
         Mp3Info.stub(:open, mp3info) do
           track.attributes.must_equal(
-            {
-              filename:     '/some/path/electro.mp3',
-              title:        'eee-lectro',
-              artist:       'Gavin Laking + Various',
-              album:        'That night at Sankeys',
-              track_number: 3,
-              duration:     3623.0270625,
-              bitrate:      320
-            }
+            filename:     '/some/path/electro.mp3',
+            title:        'eee-lectro',
+            artist:       'Gavin Laking + Various',
+            album:        'That night at Sankeys',
+            track_number: 3,
+            duration:     3623.0270625,
+            bitrate:      320
           )
         end
       end

@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-$:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(__FILE__) + '/../lib')
+unless $LOAD_PATH.include?(File.dirname(__FILE__) + '/../lib')
+  $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
+end
 
 -> { its -> { a } }
 trap('INT') { exit! }
@@ -8,10 +10,6 @@ require 'playa'
 
 args = ARGV.dup
 
-play_directory = if args.empty? || args.nil?
-  Dir.pwd
-else
-  args
-end
+play_directory = args.empty? || args.nil? ? Dir.pwd : args
 
-Playa::Application.start(args)
+Playa::Application.start(play_directory)
