@@ -20,7 +20,7 @@ module Playa
     end
 
     def self.start(args = [])
-      Controller.new
+      Controller.new(args)
 
       Vedeu::Launcher.new(args).execute!
     end

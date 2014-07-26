@@ -2,7 +2,9 @@ require 'playa/track'
 
 module Playa
   class TrackCollection
-    def initialize; end
+    def initialize(args = [])
+      @args = args
+    end
 
     def tracks
       @_tracks ||= files.inject([]) do |acc, file|
@@ -13,18 +15,20 @@ module Playa
 
     def files
       @_files ||= Dir.glob(recursive).select do |file|
-        File.file?(file)
+        File.file?(file) && File.extname(file) == '.mp3'
       end
     end
 
     private
+
+    attr_reader :args
 
     def recursive
       directory + '/**/*'
     end
 
     def directory
-      '/Users/gavinlaking/Music/playa'
+      args.first || '.'
     end
   end
 end

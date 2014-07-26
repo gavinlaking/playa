@@ -2,7 +2,7 @@ module Playa
   class Controller
     include Vedeu
 
-    def initialize
+    def initialize(args = [])
       event :update do
         @view = View.render(menu.items)
       end
@@ -46,17 +46,20 @@ module Playa
         trigger(:update)
       end
 
+      @args = args
       @view = View.render(menu.items)
     end
 
     private
+
+    attr_reader :args
 
     def menu
       @_menu ||= Vedeu::Menu.new(tracks)
     end
 
     def tracks
-      @_tracks ||= TrackCollection.new.tracks
+      @_tracks ||= TrackCollection.new(args).tracks
     end
 
     def player

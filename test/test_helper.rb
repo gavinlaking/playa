@@ -8,6 +8,8 @@ SimpleCov.start do
   add_filter   '/test/'
 end unless ENV['no_simplecov']
 
+require 'playa'
+
 GC.disable
 
 # commented out by default (makes tests slower)
