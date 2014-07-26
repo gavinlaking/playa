@@ -5,9 +5,6 @@ module Playa
   describe TrackCollection do
     describe '#tracks' do
       it 'returns a collection of Track objects' do
-        files = [
-          "/some/path/dance.mp3"
-        ]
         collection = TrackCollection.new
         collection.tracks.must_be_instance_of(Array)
         collection.tracks.first.must_be_instance_of(Track)
@@ -17,9 +14,9 @@ module Playa
     describe '#files' do
       it 'returns a list of files for the specified directory' do
         files = [
-          "/some/path/dance.mp3",
-          "/some/path/electro.mp3",
-          "/some/path/dubstep.mp3"
+          '/some/path/dance.mp3',
+          '/some/path/electro.mp3',
+          '/some/path/dubstep.mp3'
         ]
         collection = TrackCollection.new
 

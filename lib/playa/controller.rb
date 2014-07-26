@@ -20,28 +20,15 @@ module Playa
 
       event :key do |key|
         case key
-        when :left
-          player.rewind
-
-        when :right
-          player.forward
-
-        when :space
-          player.toggle
-
+        when :left  then player.rewind
+        when :right then player.forward
+        when :space then player.toggle
+        when :up    then trigger(:menu_prev)
+        when :down  then trigger(:menu_next)
+        when 'q'    then trigger(:_exit_)
         when :enter
           trigger(:menu_select)
           trigger(:select, menu.current_item)
-
-        when :up
-          trigger(:menu_prev)
-
-        when :down
-          trigger(:menu_next)
-
-        when 'q'
-          trigger(:_exit_)
-
         end
         trigger(:update)
       end
