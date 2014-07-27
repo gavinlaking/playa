@@ -15,7 +15,7 @@ module Playa
       colour  foreground: '#afd700', background: '#000000'
       cursor  false
       width   60
-      height  10
+      height  5
       centred true
     end
 

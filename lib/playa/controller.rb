@@ -6,7 +6,7 @@ module Playa
       @player = Player.new
 
       event :update do
-        @view = View.render(menu.items)
+        @view = View.render(menu.view)
       end
 
       event :select do |track|
@@ -34,7 +34,7 @@ module Playa
       end
 
       @args = args
-      @view = View.render(menu.items)
+      @view = View.render(menu.view)
     end
 
     private
