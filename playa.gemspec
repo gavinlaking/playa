@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'audite',             '0.3.0'
   spec.add_dependency 'ruby-mp3info',       '0.8.4'
-  spec.add_dependency 'vedeu',              '0.0.42'
+  spec.add_dependency 'vedeu',              '0.1.0'
 end
