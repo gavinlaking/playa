@@ -2,20 +2,19 @@ require 'audite'
 
 module Playa
   class Player
-    attr_reader :track
+    include Vedeu
 
-    def self.play(track)
-      new(track).start
-    end
+    def initialize
+      event(:forward) { forward if playing? }
+      event(:rewind)  { rewind if playing? }
+      event(:toggle)  { toggle }
+      event(:play) do |track|
+        stop if playing?
 
-    def initialize(track = nil)
-      @track = track
-    end
+        open(track)
 
-    def start
-      open
-
-      play
+        play
+      end
     end
 
     def play
@@ -35,7 +34,11 @@ module Playa
     end
 
     def toggle
-      player.toggle
+      if playing?
+        stop
+      else
+        play
+      end
     end
 
     def playing?
@@ -52,7 +55,7 @@ module Playa
 
     private
 
-    def open
+    def open(track)
       player.load(track.filename)
     end
 

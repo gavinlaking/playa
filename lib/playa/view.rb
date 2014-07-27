@@ -9,7 +9,7 @@ module Playa
     end
 
     def render
-      Vedeu::Parser.parse(['playlist', playlist])
+      Vedeu::Parser.parse([ interface, playlist ])
     end
 
     private
@@ -17,7 +17,11 @@ module Playa
     attr_reader :menu
 
     def playlist
-      menu.map { |sel, cur, item| [sel, cur, item.title] }
+      menu.map { |sel, cur, item| [ sel, cur, item.title ] }
+    end
+
+    def interface
+      'playlist'
     end
   end
 end

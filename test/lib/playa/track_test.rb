@@ -22,6 +22,12 @@ module Playa
     end
     let(:track) { Track.new(file) }
 
+    describe '#initialize' do
+      it 'returns an instance of itself' do
+        Track.new(file).must_be_instance_of(Track)
+      end
+    end
+
     describe '#attributes' do
       it 'returns a collection of attributes' do
         Mp3Info.stub(:open, mp3info) do
