@@ -3,14 +3,14 @@ module Playa
     include Vedeu
 
     def initialize(args = [])
+      @player = Player.new
+
       event :update do
         @view = View.render(menu.items)
       end
 
       event :select do |track|
-        player.stop
-
-        @_player = Player.play(track)
+        trigger(:play, track)
       end
 
       event :complete do
@@ -20,9 +20,9 @@ module Playa
 
       event :key do |key|
         case key
-        when :left  then player.rewind
-        when :right then player.forward
-        when :space then player.toggle
+        when :left  then trigger(:rewind)
+        when :right then trigger(:forward)
+        when ' '    then trigger(:toggle)
         when :up    then trigger(:menu_prev)
         when :down  then trigger(:menu_next)
         when 'q'    then trigger(:_exit_)
@@ -47,10 +47,6 @@ module Playa
 
     def tracks
       @_tracks ||= TrackCollection.new(args).tracks
-    end
-
-    def player
-      @_player ||= Player.new
     end
   end
 end
