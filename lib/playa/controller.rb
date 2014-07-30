@@ -6,7 +6,8 @@ module Playa
       @player = Player.new
 
       event :update do
-        @view = View.render(menu.view)
+        PlaylistView.render(playlist)
+        StatusView.render(status)
       end
 
       event :select do |track|
@@ -33,13 +34,24 @@ module Playa
         trigger(:update)
       end
 
-      @args = args
-      @view = View.render(menu.view)
+      @args          = args
+      @playlist_view = PlaylistView.render(playlist)
+      @status_view   = StatusView.render(status)
     end
 
     private
 
     attr_reader :args
+
+    def status
+      [
+        "\u{25B2} Previous   \u{25BC} Next   "
+      ]
+    end
+
+    def playlist
+      menu.view.map { |sel, cur, item| [ sel, cur, item.title ] }
+    end
 
     def menu
       @_menu ||= Vedeu::Menu.new(tracks)

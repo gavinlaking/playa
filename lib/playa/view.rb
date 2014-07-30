@@ -1,27 +1,35 @@
 module Playa
   class View
-    def self.render(menu)
-      new(menu).render
+    def self.render(output)
+      new(output).render
     end
 
-    def initialize(menu)
-      @menu = menu
+    def initialize(output)
+      @output = output
     end
 
     def render
-      Vedeu::Parser.parse([ interface, playlist ])
+      Vedeu::Parser.parse(:menu, output)
     end
 
     private
 
-    attr_reader :menu
+    attr_reader :output
+  end
 
-    def playlist
-      menu.map { |sel, cur, item| [ sel, cur, item.title ] }
+  class PlaylistView < View
+    private
+
+    def output
+      [ 'playlist', @output ]
     end
+  end
 
-    def interface
-      'playlist'
+  class StatusView < View
+    private
+
+    def output
+      { 'status' => @output }
     end
   end
 end
