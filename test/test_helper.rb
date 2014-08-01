@@ -10,6 +10,8 @@ end unless ENV['no_simplecov']
 
 require 'playa'
 
+require 'mocha/setup'
+
 GC.disable
 
 # commented out by default (makes tests slower)

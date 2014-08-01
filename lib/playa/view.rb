@@ -1,27 +1,27 @@
 module Playa
   class View
-    def self.render(menu)
-      new(menu).render
+    def self.render(object = nil)
+      new(object).render
     end
 
-    def initialize(menu)
-      @menu = menu
+    def initialize(object = nil)
+      @object = object
     end
 
     def render
-      Vedeu::Parser.parse([ interface, playlist ])
+      Vedeu::View.render(type, output)
     end
 
     private
 
-    attr_reader :menu
+    attr_reader :object
 
-    def playlist
-      menu.map { |sel, cur, item| [ sel, cur, item.title ] }
+    def output
+      fail NotImplemented, 'Implement #output on your subclass of Playa::View.'
     end
 
-    def interface
-      'playlist'
+    def type
+      fail NotImplemented, 'Implement #type on your subclass of Playa::View.'
     end
   end
 end

@@ -49,13 +49,27 @@ module Playa
       player.position
     end
 
+    def progress
+      if playing?
+        counter / @track.duration
+      else
+        0
+      end
+    end
+
     def level
       player.level
+    end
+
+    def events
+      player.events
     end
 
     private
 
     def open(track)
+      @track = track
+
       player.load(track.filename)
     end
 
