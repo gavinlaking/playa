@@ -1,4 +1,6 @@
 module Playa
+  NotImplemented = Class.new(StandardError)
+
   class View
     def self.render(object = nil)
       new(object).render
