@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'playa'
-  spec.version       = '0.0.6'
+  spec.version       = '0.0.7'
   spec.authors       = ['Gavin Laking']
   spec.email         = ['gavinlaking@gmail.com']
   spec.summary       = 'Plays mp3s from a directory.'
