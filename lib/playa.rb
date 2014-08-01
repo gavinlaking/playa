@@ -19,6 +19,17 @@ module Playa
       centred true
     end
 
+    interface 'progress' do
+      colour  foreground: '#afd700', background: '#005a00'
+      cursor  false
+      width   60
+      height  1
+      y       playlist.geometry.top - 2
+      x       playlist.geometry.left
+      centred false
+      delay   0.5
+    end
+
     interface 'status' do
       colour  foreground: '#d70000', background: '#000000'
       cursor  false

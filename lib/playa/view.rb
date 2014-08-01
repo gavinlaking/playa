@@ -1,35 +1,27 @@
 module Playa
   class View
-    def self.render(output)
-      new(output).render
+    def self.render(object = nil)
+      new(object).render
     end
 
-    def initialize(output)
-      @output = output
+    def initialize(object = nil)
+      @object = object
     end
 
     def render
-      Vedeu::Parser.parse(:menu, output)
+      Vedeu::View.render(type, output)
     end
 
     private
 
-    attr_reader :output
-  end
-
-  class PlaylistView < View
-    private
+    attr_reader :object
 
     def output
-      [ 'playlist', @output ]
+      fail NotImplemented, 'Implement #output on your subclass of Playa::View.'
     end
-  end
 
-  class StatusView < View
-    private
-
-    def output
-      { 'status' => @output }
+    def type
+      fail NotImplemented, 'Implement #type on your subclass of Playa::View.'
     end
   end
 end

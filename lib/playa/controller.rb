@@ -1,3 +1,7 @@
+require 'playa/playlist_view'
+require 'playa/progress_view'
+require 'playa/status_view'
+
 module Playa
   class Controller
     include Vedeu
@@ -6,8 +10,13 @@ module Playa
       @player = Player.new
 
       event :update do
-        PlaylistView.render(playlist)
-        StatusView.render(status)
+        PlaylistView.render(menu)
+        StatusView.render
+      end
+
+      event :progress_update, 0.5 do
+        ProgressView.render(@player)
+        trigger(:refresh)
       end
 
       event :select do |track|
@@ -34,24 +43,18 @@ module Playa
         trigger(:update)
       end
 
+      @player.events.on(:position_change) { trigger(:progress_update) }
+      @player.events.on(:complete)        { trigger(:complete) }
+
       @args          = args
-      @playlist_view = PlaylistView.render(playlist)
-      @status_view   = StatusView.render(status)
+      @playlist_view = PlaylistView.render(menu)
+      @status_view   = StatusView.render
+      @progress_view = ProgressView.render(@player)
     end
 
     private
 
     attr_reader :args
-
-    def status
-      [
-        "\u{25B2} Previous   \u{25BC} Next   "
-      ]
-    end
-
-    def playlist
-      menu.view.map { |sel, cur, item| [ sel, cur, item.title ] }
-    end
 
     def menu
       @_menu ||= Vedeu::Menu.new(tracks)
