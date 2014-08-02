@@ -25,7 +25,9 @@ module Playa
 
       event :complete do
         trigger(:menu_next)
+        trigger(:menu_select)
         trigger(:select, menu.current_item)
+        trigger(:update)
       end
 
       event :key do |key|
