@@ -16,8 +16,10 @@ module Playa
       '|' * (object.progress * view_width).ceil
     end
 
+
+    # TODO: playa knows too much here...
     def view_width
-      @_width ||= Vedeu.view('progress').width
+      @_width ||= Vedeu.view('progress').geometry.width
     end
   end
 end
