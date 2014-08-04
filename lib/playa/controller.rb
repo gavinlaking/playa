@@ -11,7 +11,6 @@ module Playa
 
       event :update do
         PlaylistView.render(menu)
-        StatusView.render
       end
 
       event :progress_update, 0.5 do
