@@ -11,7 +11,6 @@ module Playa
 
       event :update do
         PlaylistView.render(menu)
-        StatusView.render
       end
 
       event :progress_update, 0.5 do
@@ -25,7 +24,9 @@ module Playa
 
       event :complete do
         trigger(:menu_next)
+        trigger(:menu_select)
         trigger(:select, menu.current_item)
+        trigger(:update)
       end
 
       event :key do |key|

@@ -65,6 +65,10 @@ module Playa
       player.events
     end
 
+    def track
+      @track
+    end
+
     private
 
     def open(track)
