@@ -23,7 +23,7 @@ module Playa
     end
 
     def title
-      id_tags.tag.title || filename
+      id_tags.tag.title || filename # TODO: this will include the path
     end
 
     def artist
