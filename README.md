@@ -5,6 +5,8 @@
 
 Plays mp3s from a directory using Ruby. An example app using Vedeu.
 
+![Exciting Screenshot](https://raw.github.com/gavinlaking/playa/master/screenshot.png)
+
 
 ## Requirements
 

@@ -43,7 +43,7 @@ module Playa
 
     # TODO: playa knows too much here...
     def view_width
-      @_width ||= Vedeu.view('progress').geometry.width
+      @_width ||= Vedeu.with('progress').geometry.width
     end
   end
 end
