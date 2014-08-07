@@ -27,7 +27,7 @@ module Playa
       y       playlist.geometry.top - 2
       x       playlist.geometry.left
       centred false
-      delay   0.5
+      delay   1.0
     end
 
     interface 'status' do
