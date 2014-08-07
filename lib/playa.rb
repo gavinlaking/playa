@@ -20,7 +20,7 @@ module Playa
     end
 
     interface 'progress' do
-      colour  foreground: '#afd700', background: '#005a00'
+      colour  foreground: '#005aff', background: '#000000'
       cursor  false
       width   60
       height  1

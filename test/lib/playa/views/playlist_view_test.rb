@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'playa/playlist_view'
+require 'playa/views/playlist_view'
 
 module Playa
   describe PlaylistView do

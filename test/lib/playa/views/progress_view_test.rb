@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'playa/progress_view'
+require 'playa/views/progress_view'
 
 module Playa
   describe ProgressView do

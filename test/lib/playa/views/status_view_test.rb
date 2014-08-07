@@ -1,5 +1,5 @@
 require 'test_helper'
-require 'playa/status_view'
+require 'playa/views/status_view'
 
 module Playa
   describe StatusView do

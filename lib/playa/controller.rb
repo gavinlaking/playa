@@ -1,6 +1,6 @@
-require 'playa/playlist_view'
-require 'playa/progress_view'
-require 'playa/status_view'
+require 'playa/views/playlist_view'
+require 'playa/views/progress_view'
+require 'playa/views/status_view'
 
 module Playa
   class Controller
