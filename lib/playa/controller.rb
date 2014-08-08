@@ -15,7 +15,7 @@ module Playa
 
       event :progress_update, 0.5 do
         ProgressView.render(@player)
-        trigger(:refresh)
+        trigger(:_refresh_progress_)
       end
 
       event :select do |track|
