@@ -1,15 +1,5 @@
-require 'playa/view'
-
 module Playa
-  class ProgressView < View
-    include Vedeu
-
-    private
-
-    def type
-      :dsl
-    end
-
+  class ProgressView < Vedeu::View
     def output
       if object.track
         track_loaded
@@ -19,6 +9,8 @@ module Playa
 
       end
     end
+
+    private
 
     def track_loaded
       view 'progress' do

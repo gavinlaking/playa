@@ -11,11 +11,12 @@ module Playa
 
       event :update do
         PlaylistView.render(menu)
+        trigger(:_refresh_playlist_)
       end
 
       event :progress_update, 0.5 do
         ProgressView.render(@player)
-        trigger(:refresh)
+        trigger(:_refresh_progress_)
       end
 
       event :select do |track|

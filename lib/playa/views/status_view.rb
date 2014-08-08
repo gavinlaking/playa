@@ -1,15 +1,5 @@
-require 'playa/view'
-
 module Playa
-  class StatusView < View
-    include Vedeu
-
-    private
-
-    def type
-      :dsl
-    end
-
+  class StatusView < Vedeu::View
     def output
       view 'status' do
         line do
