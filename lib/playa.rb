@@ -23,8 +23,8 @@ module Playa
       cursor  false
       width   60
       height  1
-      y       playlist.geometry.top - 2
-      x       playlist.geometry.left
+      y       playlist.north(2)
+      x       playlist.left
       centred false
       delay   1.0
     end
@@ -34,8 +34,8 @@ module Playa
       cursor  false
       width   60
       height  1
-      y       playlist.geometry.bottom + 1
-      x       playlist.geometry.left
+      y       playlist.south(1)
+      x       playlist.left
       centred false
     end
 
