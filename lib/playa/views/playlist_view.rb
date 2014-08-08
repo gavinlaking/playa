@@ -1,15 +1,5 @@
-require 'playa/view'
-
 module Playa
-  class PlaylistView < View
-    include Vedeu
-
-    private
-
-    def type
-      :dsl
-    end
-
+  class PlaylistView < Vedeu::View
     def output
       view 'playlist' do
         self.object.view.each do |sel, cur, item|

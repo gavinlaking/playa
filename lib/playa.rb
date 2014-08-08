@@ -4,7 +4,6 @@ require 'vedeu'
 require 'playa/track'
 require 'playa/track_collection'
 require 'playa/player'
-require 'playa/view'
 require 'playa/controller'
 
 module Playa
