@@ -11,6 +11,7 @@ module Playa
 
       event :update do
         PlaylistView.render(menu)
+        trigger(:_refresh_playlist_)
       end
 
       event :progress_update, 0.5 do
