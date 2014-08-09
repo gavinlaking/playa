@@ -9,6 +9,10 @@ module Playa
     def initialize(args = [])
       @player = Player.new
 
+      event :_initialize_ do
+        trigger(:_refresh_)
+      end
+
       event :update do
         PlaylistView.render(menu)
         trigger(:_refresh_playlist_)
