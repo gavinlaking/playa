@@ -1,5 +1,9 @@
+require 'playa/helpers'
+
 module Playa
   class ProgressView < Vedeu::View
+    include Playa::Helpers
+
     def output
       if object.track
         track_loaded
@@ -53,13 +57,7 @@ module Playa
     end
 
     def timer
-      remaining = (object.track.duration - object.counter).floor
-      mm, ss    = remaining.divmod(60)
-      hh, mm    = mm.divmod(60)
-      mins      = mm.to_s.rjust(2, '0')
-      secs      = ss.to_s.rjust(2, '0')
-
-      [mins, secs].join(":")
+      remaining(object.track, object)
     end
 
     def view_width
