@@ -10,7 +10,7 @@ module Playa
   class Application
     include Vedeu
 
-    playlist = interface 'playlist' do
+    interface 'playlist' do
       colour  foreground: '#afd700', background: '#000000'
       cursor  false
       width   60
