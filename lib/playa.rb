@@ -23,8 +23,8 @@ module Playa
       cursor  false
       width   60
       height  1
-      y       playlist.north(2)
-      x       playlist.left
+      y       use('playlist').north(2)
+      x       use('playlist').left
       centred false
       delay   1.0
     end
@@ -34,8 +34,8 @@ module Playa
       cursor  false
       width   60
       height  1
-      y       playlist.south(1)
-      x       playlist.left
+      y       use('playlist').south(1)
+      x       use('playlist').left
       centred false
     end
 
