@@ -11,6 +11,7 @@ module Playa
 
       event :_initialize_ do
         trigger(:_refresh_)
+        trigger(:_refresh_status_)
       end
 
       event :update do
