@@ -11,7 +11,7 @@ module Playa
             line do
               stream do
                 width title_width(item)
-                text "\u{25B6}>  #{item.title}"
+                text "\u{25B6}> #{item.title}"
               end
 
               stream do
