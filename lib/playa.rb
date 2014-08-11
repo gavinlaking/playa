@@ -43,6 +43,9 @@ module Playa
       Controller.new(args)
 
       Vedeu::Launcher.new(args).execute!
+    rescue Errno::EMFILE
+      puts "Playa does not support this number of files."
+      puts "Please see https://github.com/gavinlaking/playa/issues/11"
     end
   end
 end
