@@ -40,7 +40,7 @@ or, specify a directory to play from:
 
 ## Contributing
 
-1. Fork it ( https://github.com/gavinlaking/playa/fork )
+1. Fork it ( http://github.com/gavinlaking/playa/fork )
 2. Clone it
 3. `bundle`
 4. `rake` or `bundle exec guard`
@@ -48,4 +48,4 @@ or, specify a directory to play from:
 6. Write some tests, write some code, have some fun
 7. Commit your changes (`git commit -am 'Add some feature'`)
 8. Push to the branch (`git push origin my-new-feature`)
-9. Create a new Pull Request
+9. Create a new pull request
