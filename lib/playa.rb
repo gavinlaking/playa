@@ -10,12 +10,22 @@ module Playa
   class Application
     include Vedeu
 
+    interface 'help' do
+      centred true
+      colour  foreground: '#ffffff', background: '#000000'
+      cursor  false
+      group   'help'
+      height  9
+      width   60
+    end
+
     interface 'playlist' do
       colour  foreground: '#afd700', background: '#000000'
       cursor  false
       width   60
       height  5
       centred true
+      group   'player'
     end
 
     interface 'progress' do
@@ -27,6 +37,7 @@ module Playa
       x       use('playlist').left
       centred false
       delay   1.0
+      group   'player'
     end
 
     interface 'status' do
@@ -37,6 +48,7 @@ module Playa
       y       use('playlist').south(1)
       x       use('playlist').left
       centred false
+      group   'player'
     end
 
     def self.start(args = [])

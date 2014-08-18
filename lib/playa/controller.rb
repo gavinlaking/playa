@@ -1,6 +1,8 @@
+require 'playa/views/help_view'
 require 'playa/views/playlist_view'
 require 'playa/views/progress_view'
 require 'playa/views/status_view'
+require 'playa/views/startup_view'
 
 module Playa
   class Controller
@@ -10,8 +12,33 @@ module Playa
       @player = Player.new
 
       event :_initialize_ do
-        trigger(:_refresh_)
-        trigger(:_refresh_status_)
+        trigger(:show_startup)
+      end
+
+      event :show_startup do
+        trigger(:_clear_)
+
+        StartupView.render
+
+        trigger(:_refresh_group_player_)
+      end
+
+      event :show_help do
+        trigger(:_clear_)
+
+        HelpView.render
+
+        trigger(:_refresh_help_)
+      end
+
+      event :show_player do
+        trigger(:_clear_)
+
+        PlaylistView.render(menu)
+        StatusView.render
+        ProgressView.render(@player)
+
+        trigger(:_refresh_group_player_)
       end
 
       event :update do
@@ -37,26 +64,30 @@ module Playa
 
       event :key do |key|
         case key
-        when :left  then trigger(:rewind)
-        when :right then trigger(:forward)
+        when :left, 'h'  then trigger(:rewind)
+        when :right, 'l' then trigger(:forward)
         when ' '    then trigger(:toggle)
-        when :up    then trigger(:menu_prev)
-        when :down  then trigger(:menu_next)
-        when 'q'    then trigger(:_exit_)
+        when :up, 'k' then
+          trigger(:menu_prev)
+          trigger(:update)
+        when :down, 'j' then
+          trigger(:menu_next)
+          trigger(:update)
+        when '?' then trigger(:show_help)
+        when 'p', 's' then trigger(:show_player)
+        when 'q' then trigger(:_exit_)
         when :enter
           trigger(:menu_select)
           trigger(:select, menu.current_item)
+          trigger(:update)
         end
-        trigger(:update)
       end
 
       @player.events.on(:position_change) { trigger(:progress_update) }
       @player.events.on(:complete)        { trigger(:complete) }
 
-      @args          = args
-      @playlist_view = PlaylistView.render(menu)
-      @status_view   = StatusView.render
-      @progress_view = ProgressView.render(@player)
+      @args = args
+      trigger(:show_startup)
     end
 
     private
