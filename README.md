@@ -14,17 +14,23 @@ Plays mp3s from a directory using Ruby. An example app using Vedeu ( https://git
 - Mpg123 >= 1.14
 
 
-### OSX Installation
+### OSX Dependency Installation
 
     brew install portaudio
     brew install mpg123
-    gem install playa
 
-### Debian / Ubuntu Install
+### Debian / Ubuntu Dependency Installation
 
     apt-get install libjack0 libjack-dev
     apt-get install libportaudiocpp0 portaudio19-dev libmpg123-dev
+
+#### Gem Installation
+
     gem install playa
+
+or
+
+    sudo gem install playa
 
 
 ## Usage
