@@ -3,7 +3,7 @@
 
 # Playa
 
-Plays mp3s from a directory using Ruby. An example app using Vedeu.
+Plays mp3s from a directory using Ruby. An example app using Vedeu ( https://github.com/gavinlaking/vedeu ).
 
 ![Exciting Screenshot](https://raw.github.com/gavinlaking/playa/master/screenshot.png)
 
