@@ -20,8 +20,8 @@ Plays mp3s from a directory using Ruby. An example app using Vedeu ( https://git
 
 ### Debian / Ubuntu Dependency Installation
 
-    apt-get install libjack0 libjack-dev
-    apt-get install libportaudiocpp0 portaudio19-dev libmpg123-dev
+    sudo apt-get install libjack0 libjack-dev
+    sudo apt-get install libportaudiocpp0 portaudio19-dev libmpg123-dev
 
 #### Gem Installation
 
