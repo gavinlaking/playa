@@ -1,5 +1,3 @@
-require 'playa/helpers'
-
 module Playa
   class PlaylistView < Vedeu::View
     include Playa::Helpers

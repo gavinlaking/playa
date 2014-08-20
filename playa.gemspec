@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake',               '10.3.2'
   spec.add_development_dependency 'simplecov',          '0.9.0'
 
-  spec.add_dependency 'audite',             '0.3.0'
-  spec.add_dependency 'ruby-mp3info',       '0.8.4'
-  spec.add_dependency 'vedeu'
+  spec.add_dependency 'audite',       '0.3.0'
+  spec.add_dependency 'ruby-mp3info', '0.8.4'
+  spec.add_dependency 'vedeu',        '0.1.15'
 end
