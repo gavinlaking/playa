@@ -1,5 +1,4 @@
 [![Code Climate](https://codeclimate.com/github/gavinlaking/playa.png)](https://codeclimate.com/github/gavinlaking/playa)
-[![Build Status](https://travis-ci.org/gavinlaking/playa.svg?branch=master)](https://travis-ci.org/gavinlaking/playa)
 
 # Playa
 
