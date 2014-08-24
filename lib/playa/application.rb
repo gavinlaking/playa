@@ -25,8 +25,8 @@ module Playa
       cursor  false
       width   60
       height  1
-      y       use('playlist').north(2)
-      x       use('playlist').left
+      y       { use('playlist').north(2) }
+      x       { use('playlist').left }
       centred false
       delay   1.0
       group   'player'
@@ -37,8 +37,8 @@ module Playa
       cursor  false
       width   60
       height  1
-      y       use('playlist').south(1)
-      x       use('playlist').left
+      y       { use('playlist').south(1) }
+      x       { use('playlist').left }
       centred false
       group   'player'
     end
