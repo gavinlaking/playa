@@ -2,7 +2,7 @@ module Playa
   class ProgressView < Vedeu::View
     include Playa::Helpers
 
-    def output
+    def render
       if object.track
         track_loaded
 

@@ -2,7 +2,7 @@ module Playa
   class PlaylistView < Vedeu::View
     include Playa::Helpers
 
-    def output
+    def render
       view 'playlist' do
         self.object.view.each do |sel, cur, item|
           if sel && cur

@@ -2,9 +2,9 @@ require 'test_helper'
 
 module Playa
   describe StartupView do
-    describe '#output' do
+    describe '#render' do
       it 'returns output suitable for Vedeu to parse' do
-        StartupView.new.output.must_equal(
+        StartupView.new.render.must_equal(
           {
             interfaces: [
               {

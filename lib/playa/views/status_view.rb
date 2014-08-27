@@ -1,52 +1,22 @@
 module Playa
   class StatusView < Vedeu::View
-    def output
+    def render
       view 'status' do
         line do
-          stream do
-            colour foreground: '#ff0000'
-            text   " \u{25B2}"
-          end
-          stream do
-            colour foreground: '#ffffff'
-            text   ' Prev  '
-          end
+          foreground('#ff0000') { text " \u{25B2}" }
+          foreground('#ffffff') { text ' Prev  ' }
 
-          stream do
-            colour foreground: '#ff0000'
-            text   "\u{25BC}"
-          end
-          stream do
-            colour foreground: '#ffffff'
-            text   ' Next  '
-          end
+          foreground('#ff0000') { text "\u{25BC}" }
+          foreground('#ffffff') { text ' Next  ' }
 
-          stream do
-            colour foreground: '#ff0000'
-            text   "\u{21B2}"
-          end
-          stream do
-            colour foreground: '#ffffff'
-            text   ' Select  '
-          end
+          foreground('#ff0000') { text "\u{21B2}" }
+          foreground('#ffffff') { text ' Select  ' }
 
-          stream do
-            colour foreground: '#ff0000'
-            text   "\u{2395}"
-          end
-          stream do
-            colour foreground: '#ffffff'
-            text   ' Pause  '
-          end
+          foreground('#ff0000') { text "\u{2395}" }
+          foreground('#ffffff') { text ' Pause  ' }
 
-          stream do
-            colour foreground: '#ff0000'
-            text   "Q"
-          end
-          stream do
-            colour foreground: '#ffffff'
-            text   ' Quit  '
-          end
+          foreground('#ff0000') { text 'Q' }
+          foreground('#ffffff') { text ' Quit  ' }
         end
       end
     end

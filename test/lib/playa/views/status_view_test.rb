@@ -2,9 +2,9 @@ require 'test_helper'
 
 module Playa
   describe StatusView do
-    describe '#output' do
+    describe '#render' do
       it 'returns output suitable for Vedeu to parse' do
-        StatusView.new.output.must_equal(
+        StatusView.new.render.must_equal(
           {
             interfaces: [
               {

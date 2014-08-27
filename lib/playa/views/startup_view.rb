@@ -1,6 +1,6 @@
 module Playa
   class StartupView < Vedeu::View
-    def output
+    def render
       views do
         view 'progress' do
           line do

@@ -2,12 +2,12 @@ require 'test_helper'
 
 module Playa
   describe ProgressView do
-    describe '#output' do
+    describe '#render' do
       describe 'when there is no track loaded' do
         let(:player) { Player.new }
 
         it 'returns output suitable for Vedeu to parse' do
-          ProgressView.new(player).output.must_equal(
+          ProgressView.new(player).render.must_equal(
             {
               interfaces: [
                 {
