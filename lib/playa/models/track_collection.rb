@@ -1,5 +1,3 @@
-require 'playa/track'
-
 module Playa
   class TrackCollection
     def initialize(args = [])

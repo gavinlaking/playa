@@ -1,10 +1,8 @@
-require 'playa/helpers'
-
 module Playa
   class ProgressView < Vedeu::View
     include Playa::Helpers
 
-    def output
+    def render
       if object.track
         track_loaded
 
@@ -61,7 +59,7 @@ module Playa
     end
 
     def view_width
-      @_width ||= Vedeu.use('progress').width
+      Vedeu.use('progress').viewport_width
     end
   end
 end

@@ -1,5 +1,3 @@
-require 'mp3info'
-
 module Playa
   class Track
     def initialize(file)

@@ -2,6 +2,7 @@ require 'simplecov'
 require 'pry'
 require 'minitest/autorun'
 require 'minitest/hell'
+require 'minitest/pride'
 
 SimpleCov.start do
   command_name 'MiniTest::Spec'

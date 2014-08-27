@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'playa/track_collection'
 
 module Playa
   describe TrackCollection do

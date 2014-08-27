@@ -1,5 +1,3 @@
-require 'audite'
-
 module Playa
   class Player
     include Vedeu

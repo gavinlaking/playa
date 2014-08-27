@@ -1,6 +1,6 @@
 module Playa
   class HelpView < Vedeu::View
-    def output
+    def render
       view 'help' do
         line do
           text 'Help!'

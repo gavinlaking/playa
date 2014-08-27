@@ -1,9 +1,3 @@
-require 'playa/views/help_view'
-require 'playa/views/playlist_view'
-require 'playa/views/progress_view'
-require 'playa/views/status_view'
-require 'playa/views/startup_view'
-
 module Playa
   class Controller
     include Vedeu
