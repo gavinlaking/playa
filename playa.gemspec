@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'playa'
-  spec.version       = '0.0.13'
+  spec.version       = '0.0.13.1'
   spec.authors       = ['Gavin Laking']
   spec.email         = ['gavinlaking@gmail.com']
   spec.summary       = 'Plays mp3s from a directory.'
@@ -29,5 +29,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'audite',       '0.3.0'
   spec.add_dependency 'ruby-mp3info', '0.8.4'
-  spec.add_dependency 'vedeu',        '0.1.16'
+  spec.add_dependency 'vedeu',        '0.1.17'
 end
