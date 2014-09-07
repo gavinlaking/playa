@@ -22,17 +22,26 @@ module Playa
                           style: [],
                           text: " ",
                           width: 60,
-                          align: :left
+                          align: :left,
+                          parent: {
+                            colour: {},
+                            style: []
+                          }
                         }
                       ],
-                      style: []
+                      style: [],
+                      parent: {
+                        colour: {},
+                        style: ''
+                      }
                     }
                   ],
                   colour: {},
                   style: "",
                   geometry: {},
                   cursor: true,
-                  delay: 0.0
+                  delay: 0.0,
+                  parent: {}
                 }
               ]
             }

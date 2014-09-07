@@ -18,14 +18,19 @@ module Playa
                         text: "Welcome to Playa."
                       }
                     ],
-                    style: []
+                    style: [],
+                    parent: {
+                      colour: {},
+                      style: ''
+                    }
                   }
                 ],
                 colour: {},
                 style: "",
                 geometry: {},
                 cursor: true,
-                delay: 0.0
+                delay: 0.0,
+                parent: {}
               }, {
                 name: "playlist",
                 group: "",
@@ -37,14 +42,19 @@ module Playa
                         text: "An mp3 player in your console."
                       }
                     ],
-                    style: []
+                    style: [],
+                    parent: {
+                      colour: {},
+                      style: ''
+                    }
                   }
                 ],
                 colour: {},
                 style: "",
                 geometry: {},
                 cursor: true,
-                delay: 0.0
+                delay: 0.0,
+                parent: {}
               }, {
                 name: "status",
                 group: "",
@@ -56,14 +66,19 @@ module Playa
                         text: "Press `s` to begin."
                       }
                     ],
-                    style: []
+                    style: [],
+                    parent: {
+                      colour: {},
+                      style: ''
+                    }
                   }
                 ],
                 colour: {},
                 style: "",
                 geometry: {},
                 cursor: true,
-                delay: 0.0
+                delay: 0.0,
+                parent: {}
               }
             ]
           }

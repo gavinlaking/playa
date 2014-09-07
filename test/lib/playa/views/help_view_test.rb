@@ -18,14 +18,19 @@ module Playa
                         text: "Help!"
                       }
                     ],
-                    style: []
+                    style: [],
+                    parent: {
+                      colour: {},
+                      style: ''
+                    }
                   }
                 ],
                 colour: {},
                 style: "",
                 geometry: {},
                 cursor: true,
-                delay: 0.0
+                delay: 0.0,
+                parent: {}
               }
             ]
           }
