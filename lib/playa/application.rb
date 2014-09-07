@@ -1,4 +1,8 @@
 module Playa
+  def self.log(message)
+    Playa::Log.logger.debug(message)
+  end
+
   class Application
     include Vedeu
 

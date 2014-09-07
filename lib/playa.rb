@@ -6,6 +6,7 @@ require 'audite'
 require 'mp3info'
 require 'vedeu'
 
+require 'playa/log'
 require 'playa/models/track'
 require 'playa/models/track_collection'
 require 'playa/models/player'

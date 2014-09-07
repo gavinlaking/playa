@@ -21,7 +21,11 @@ module Playa
                         style: [],
                         text: " ▲",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ffffff"
@@ -29,7 +33,11 @@ module Playa
                         style: [],
                         text: " Prev  ",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ff0000"
@@ -37,7 +45,11 @@ module Playa
                         style: [],
                         text: "▼",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ffffff"
@@ -45,7 +57,11 @@ module Playa
                         style: [],
                         text: " Next  ",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ff0000"
@@ -53,7 +69,11 @@ module Playa
                         style: [],
                         text: "↲",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ffffff"
@@ -61,7 +81,11 @@ module Playa
                         style: [],
                         text: " Select  ",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ff0000"
@@ -69,7 +93,11 @@ module Playa
                         style: [],
                         text: "⎕",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ffffff"
@@ -77,7 +105,11 @@ module Playa
                         style: [],
                         text: " Pause  ",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ff0000"
@@ -85,7 +117,11 @@ module Playa
                         style: [],
                         text: "Q",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }, {
                         colour: {
                           foreground: "#ffffff"
@@ -93,17 +129,26 @@ module Playa
                         style: [],
                         text: " Quit  ",
                         width: nil,
-                        align: :left
+                        align: :left,
+                        parent: {
+                          colour: {},
+                          style: []
+                        }
                       }
                     ],
-                    style: []
+                    style: [],
+                    parent: {
+                      colour: {},
+                      style: ''
+                    }
                   }
                 ],
                 colour: {},
                 style: "",
                 geometry: {},
                 cursor: true,
-                delay: 0.0
+                delay: 0.0,
+                parent: {}
               }
             ]
           }

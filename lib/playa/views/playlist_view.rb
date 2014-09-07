@@ -4,7 +4,7 @@ module Playa
 
     def render
       view 'playlist' do
-        self.object.view.each do |sel, cur, item|
+        playlist_menu.each do |sel, cur, item|
           if sel && cur
             line do
               stream do
@@ -82,6 +82,10 @@ module Playa
 
     def view_width
       Vedeu.use('playlist').viewport_width
+    end
+
+    def playlist_menu
+      @playlist_menu = Vedeu.trigger(:_menu_view_, 'playlist')
     end
 
   end
