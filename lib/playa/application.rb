@@ -47,6 +47,30 @@ module Playa
       group   'player'
     end
 
+    keys do
+      key('p', 's')    { trigger(:show_player) }
+      key('?')         { trigger(:show_help) }
+      key(' ')         { trigger(:toggle) }   # pause/unpause
+      key('h', :left)  { trigger(:rewind) }
+      key('l', :right) { trigger(:forward) }
+
+      key('k', :up) do
+        trigger(:_menu_prev_, 'playlist')
+        trigger(:update)
+      end
+
+      key('j', :down) do
+        trigger(:_menu_next_, 'playlist')
+        trigger(:update)
+      end
+
+      key(:enter) do
+        trigger(:_menu_select_, 'playlist')
+        trigger(:select, trigger(:_menu_selected_, 'playlist'))
+        trigger(:update)
+      end
+    end
+
     def self.start(args = [])
       Controller.new(args)
 

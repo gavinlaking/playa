@@ -13,30 +13,6 @@ module Playa
       trigger(:show_startup)
     end
 
-    event :key do |key|
-      case key
-      when :left, 'h'   then trigger(:rewind)
-      when :right, 'l'  then trigger(:forward)
-      when ' '          then trigger(:toggle)
-      when :up, 'k'     then
-        trigger(:_menu_prev_, 'playlist')
-        trigger(:update)
-
-      when :down, 'j'   then
-        trigger(:_menu_next_, 'playlist')
-        trigger(:update)
-
-      when '?'          then trigger(:show_help)
-      when 'p', 's'     then trigger(:show_player)
-      when 'q'          then trigger(:_exit_)
-      when :enter       then
-        trigger(:_menu_select_, 'playlist')
-        trigger(:select, trigger(:_menu_selected_, 'playlist'))
-        trigger(:update)
-
-      end
-    end
-
     event :select do |track|
       trigger(:play, track)
     end
