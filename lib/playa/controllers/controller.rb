@@ -9,48 +9,36 @@ module Playa
       trigger(:update)
     end
 
-    event :_initialize_ do
-      trigger(:show_startup)
-    end
-
-    event :select do |track|
-      trigger(:play, track)
-    end
+    event(:_initialize_) { trigger(:show_startup) }
+    event(:select)       { |track| trigger(:play, track) }
+    event(:show_startup) { StartupView.new.show }
+    event(:show_help)    { HelpView.new.show }
 
     event :update do
-      PlaylistView.render
+      PlaylistView.new.show
+
       trigger(:_refresh_playlist_)
     end
 
     def initialize(args = [])
       @args   = args
-
       @player = Player.new
       @player.events.on(:position_change) { trigger(:progress_update) }
       @player.events.on(:complete)        { trigger(:complete) }
 
-      event :show_startup do
-        trigger(:_clear_)
-        StartupView.render
-        trigger(:_refresh_group_player_)
-      end
-
-      event :show_help do
-        trigger(:_clear_)
-        HelpView.render
-        trigger(:_refresh_help_)
-      end
-
       event :show_player do
         trigger(:_clear_)
-        PlaylistView.render
-        StatusView.render
-        ProgressView.render(@player)
+
+        PlaylistView.new.show
+        StatusView.new.show
+        ProgressView.new(@player).show
+
         trigger(:_refresh_group_player_)
       end
 
       event(:progress_update, { delay: 0.5 }) do
-        ProgressView.render(@player)
+        ProgressView.new(@player).show
+
         trigger(:_refresh_progress_)
       end
 

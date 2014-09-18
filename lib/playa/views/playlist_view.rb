@@ -1,66 +1,69 @@
 module Playa
-  class PlaylistView < Vedeu::View
+  class PlaylistView
+    include Vedeu
     include Playa::Helpers
 
-    def render
-      view 'playlist' do
-        playlist_menu.each do |sel, cur, item|
-          if sel && cur
-            line do
-              stream do
-                width title_width(item)
-                text "\u{25B6}> #{item.title}"
+    def show
+      render do
+        view 'playlist' do
+          playlist_menu.each do |sel, cur, item|
+            if sel && cur
+              line do
+                stream do
+                  width title_width(item)
+                  text "\u{25B6}> #{item.title}"
+                end
+
+                stream do
+                  width timer_width(item)
+                  text  "#{timer(item)}"
+                  align :right
+                end
               end
 
-              stream do
-                width timer_width(item)
-                text  "#{timer(item)}"
-                align :right
+            elsif cur
+              line do
+                stream do
+                  width title_width(item)
+                  text " > #{item.title}"
+                end
+
+                stream do
+                  width timer_width(item)
+                  text  "#{timer(item)}"
+                  align :right
+                end
               end
+
+            elsif sel
+              line do
+                stream do
+                  width title_width(item)
+                  text "\u{25B6}  #{item.title}"
+                end
+
+                stream do
+                  width timer_width(item)
+                  text  "#{timer(item)}"
+                  align :right
+                end
+              end
+
+            else
+              line do
+                stream do
+                  width title_width(item)
+                  text "   #{item.title}"
+                end
+
+                stream do
+                  width timer_width(item)
+                  text  "#{timer(item)}"
+                  align :right
+                end
+              end
+
             end
-
-          elsif cur
-            line do
-              stream do
-                width title_width(item)
-                text " > #{item.title}"
-              end
-
-              stream do
-                width timer_width(item)
-                text  "#{timer(item)}"
-                align :right
-              end
-            end
-
-          elsif sel
-            line do
-              stream do
-                width title_width(item)
-                text "\u{25B6}  #{item.title}"
-              end
-
-              stream do
-                width timer_width(item)
-                text  "#{timer(item)}"
-                align :right
-              end
-            end
-
-          else
-            line do
-              stream do
-                width title_width(item)
-                text "   #{item.title}"
-              end
-
-              stream do
-                width timer_width(item)
-                text  "#{timer(item)}"
-                align :right
-              end
-            end
-
           end
         end
       end
