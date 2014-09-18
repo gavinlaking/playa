@@ -9,7 +9,6 @@ module Playa
     interface 'help' do
       centred true
       colour  foreground: '#ffffff', background: '#000000'
-      cursor  false
       group   'help'
       height  9
       width   60
@@ -17,7 +16,6 @@ module Playa
 
     interface 'playlist' do
       colour  foreground: '#afd700', background: '#000000'
-      cursor  false
       width   60
       height  5
       centred true
@@ -26,7 +24,6 @@ module Playa
 
     interface 'progress' do
       colour  foreground: '#005aff', background: '#000000'
-      cursor  false
       width   60
       height  1
       y       { use('playlist').north(2) }
@@ -38,7 +35,6 @@ module Playa
 
     interface 'status' do
       colour  foreground: '#d70000', background: '#000000'
-      cursor  false
       width   60
       height  1
       y       { use('playlist').south(1) }
