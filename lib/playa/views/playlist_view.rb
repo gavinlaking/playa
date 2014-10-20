@@ -84,7 +84,7 @@ module Playa
     end
 
     def view_width
-      Vedeu.use('playlist').viewport_width
+      Vedeu.use('playlist').width
     end
 
     def playlist_menu

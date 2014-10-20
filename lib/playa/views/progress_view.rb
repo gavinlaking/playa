@@ -70,7 +70,7 @@ module Playa
     end
 
     def view_width
-      Vedeu.use('progress').viewport_width
+      Vedeu.use('progress').width
     end
   end
 end
