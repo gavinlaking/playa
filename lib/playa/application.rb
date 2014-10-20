@@ -9,7 +9,6 @@ module Playa
     interface 'help' do
       centred true
       colour  foreground: '#ffffff', background: '#000000'
-      cursor  false
       group   'help'
       height  9
       width   60
@@ -17,7 +16,6 @@ module Playa
 
     interface 'playlist' do
       colour  foreground: '#afd700', background: '#000000'
-      cursor  false
       width   60
       height  5
       centred true
@@ -26,7 +24,6 @@ module Playa
 
     interface 'progress' do
       colour  foreground: '#005aff', background: '#000000'
-      cursor  false
       width   60
       height  1
       y       { use('playlist').north(2) }
@@ -38,13 +35,42 @@ module Playa
 
     interface 'status' do
       colour  foreground: '#d70000', background: '#000000'
-      cursor  false
       width   60
       height  1
       y       { use('playlist').south(1) }
       x       { use('playlist').left }
       centred false
       group   'player'
+    end
+
+    keys do
+      key('p', 's')    { trigger(:show_player) }
+      key('?')         { trigger(:show_help) }
+      key(' ')         { trigger(:toggle) }   # pause/unpause
+      key('h', :left)  { trigger(:rewind) }
+      key('l', :right) { trigger(:forward) }
+
+      key('k', :up) do
+        trigger(:_menu_prev_, 'playlist')
+        trigger(:update)
+      end
+
+      key('j', :down) do
+        trigger(:_menu_next_, 'playlist')
+        trigger(:update)
+      end
+
+      key(:enter) do
+        trigger(:_menu_select_, 'playlist')
+        trigger(:select, trigger(:_menu_selected_, 'playlist'))
+        trigger(:update)
+      end
+    end
+
+    configure do
+      colour_mode 16777216
+      interactive!
+      raw!
     end
 
     def self.start(args = [])

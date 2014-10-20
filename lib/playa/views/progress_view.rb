@@ -1,9 +1,14 @@
 module Playa
-  class ProgressView < Vedeu::View
+  class ProgressView
+    include Vedeu
     include Playa::Helpers
 
-    def render
-      if object.track
+    def initialize(player)
+      @player = player
+    end
+
+    def show
+      if player.track
         track_loaded
 
       else
@@ -14,29 +19,35 @@ module Playa
 
     private
 
-    def track_loaded
-      view 'progress' do
-        line do
-          stream do
-            width progress_width
-            text  progress_bar
-          end
+    attr_reader :player
 
-          stream do
-            width timer_width
-            text  timer
-            align :right
+    def track_loaded
+      render do
+        view 'progress' do
+          line do
+            stream do
+              width progress_width
+              text  progress_bar
+            end
+
+            stream do
+              width timer_width
+              text  timer
+              align :right
+            end
           end
         end
       end
     end
 
     def no_track_loaded
-      view 'progress' do
-        line do
-          stream do
-            width view_width
-            text  ' '
+      render do
+        view 'progress' do
+          line do
+            stream do
+              width view_width
+              text  ' '
+            end
           end
         end
       end
@@ -47,7 +58,7 @@ module Playa
     end
 
     def progress_bar
-      "\u{25FC}" * (object.progress * progress_width).ceil
+      "\u{25FC}" * (player.progress * progress_width).ceil
     end
 
     def timer_width
@@ -55,11 +66,11 @@ module Playa
     end
 
     def timer
-      remaining(object.track, object)
+      remaining(player.track, player)
     end
 
     def view_width
-      Vedeu.use('progress').viewport_width
+      Vedeu.use('progress').width
     end
   end
 end

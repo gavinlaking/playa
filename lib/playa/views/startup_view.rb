@@ -1,23 +1,38 @@
 module Playa
-  class StartupView < Vedeu::View
-    def render
-      views do
+  class StartupView
+    include Vedeu
+
+    def show
+      trigger(:_clear_)
+
+      render do
         view 'progress' do
           line do
-            text 'Welcome to Playa.'
+            stream do
+              text  'Welcome to Playa.'
+              align centre
+              width use('progress').width
+            end
           end
         end
+
         view 'playlist' do
-          line do
-            text 'An mp3 player in your console.'
-          end
+          line ''
+          line ''
+          line 'Playa is a simple, interactive mp3 player for your terminal.'
         end
+
         view 'status' do
           line do
-            text 'Press `s` to begin.'
+            stream do
+              text  'Press `s` to begin.'
+              align centre
+              width use('progress').width
+            end
           end
         end
       end
     end
+
   end
 end
