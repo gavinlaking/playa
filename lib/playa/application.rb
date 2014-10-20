@@ -67,6 +67,12 @@ module Playa
       end
     end
 
+    configure do
+      colour_mode 16777216
+      interactive!
+      raw!
+    end
+
     def self.start(args = [])
       Controller.new(args)
 
