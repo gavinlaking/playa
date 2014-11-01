@@ -15,13 +15,18 @@ Plays mp3s from a directory using Ruby. An example app using Vedeu ( https://git
 
 ### OSX Dependency Installation
 
+You may need to install XCode so that `mkmf` can then build the headers for `mpg123`.
+
+    xcode-select --install # optional
     brew install portaudio
     brew install mpg123
+
 
 ### Debian / Ubuntu Dependency Installation
 
     sudo apt-get install libjack0 libjack-dev
     sudo apt-get install libportaudiocpp0 portaudio19-dev libmpg123-dev
+
 
 #### Gem Installation
 
