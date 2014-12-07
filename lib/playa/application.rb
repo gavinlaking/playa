@@ -68,7 +68,7 @@ module Playa
     end
 
     configure do
-      colour_mode 16777216
+      colour_mode 256
       interactive!
       raw!
     end
