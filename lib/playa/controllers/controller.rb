@@ -49,6 +49,8 @@ module Playa
 
     attr_reader :args
 
+    # Recursively traverses the directory passed as an argument, adding each
+    # mp3 found to the track collection.
     def tracks
       @tracks ||= TrackCollection.new(args).tracks
     end
