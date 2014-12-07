@@ -28,6 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov',          '0.9.0'
 
   spec.add_dependency 'audite',       '0.3.0'
-  spec.add_dependency 'ruby-mp3info', '0.8.4'
-  spec.add_dependency 'vedeu',        '0.2.4'
+  spec.add_dependency 'ruby-mp3info', '0.8.5'
+  spec.add_dependency 'vedeu',        '0.2.10'
 end
