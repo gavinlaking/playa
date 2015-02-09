@@ -1,53 +1,54 @@
 module Playa
   class HelpView
-    include Vedeu
 
     def show
-      trigger(:_clear_)
+      Vedeu.trigger(:_clear_)
 
-      render do
+      Vedeu.renders do
         view 'help' do
-          line do
-            colour foreground: '#aadd00'
-            stream do
-              align centre
-              width use('help').width
-              text  'Wow, you found the really useful help page!'
+          lines do
+            line do
+              foreground '#aadd00'
+              centre 'Wow, you found the really useful help page!', width: Vedeu.use('help').width
             end
-          end
 
-          line ''
+            line ''
 
-          line do
-            colour foreground: '#ffffff'
-            stream do
-              align centre
-              width use('help').width
-              text 'Whilst a track is playing you can press:'
+            line do
+              foreground '#00ff00'
+              centre 'Whilst a track is playing you can press:', width: Vedeu.use('help').width
             end
-          end
 
-          line ''
+            line ''
 
-          line do
-            foreground('#ff0000') { text " \u{25C0}" }
-            foreground('#ffffff') { text ' to rewind 5 seconds' }
-          end
+            line do
+              stream do
+                foreground '#ff0000'
+                text " \u{25C0}"
+              end
+              stream do
+                foreground '#ffffff'
+                text ' to rewind 5 seconds'
+              end
+            end
 
-          line do
-            foreground('#ff0000') { text " \u{25B6}" }
-            foreground('#ffffff') { text ' to go forward 5 seconds' }
-          end
+            line do
+              stream do
+                foreground '#ff0000'
+                text " \u{25B6}"
+              end
+              stream do
+                foreground '#ffffff'
+                text ' to go forward 5 seconds'
+              end
+            end
 
-          line ''
-          line ''
+            line ''
+            line ''
 
-          line do
-            colour foreground: '#ffff00'
-            stream do
-              align centre
-              width use('help').width
-              text  'Press `p` to return to Playa.'
+            line do
+              colour foreground: '#ffff00'
+              centre 'Press `p` to return to Playa.', width: Vedeu.use('help').width
             end
           end
         end
