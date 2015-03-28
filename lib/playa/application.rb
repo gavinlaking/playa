@@ -6,71 +6,79 @@ module Playa
   class Application
     include Vedeu
 
-    interface 'help' do
-      centred true
+    Vedeu.configure do
+      colour_mode 256
+      debug!
+      interactive!
+      log '/tmp/playa.log'
+      raw!
+    end
+
+    Vedeu.interface 'help' do
       colour  foreground: '#ffffff', background: '#000000'
+      geometry do
+        centred!
+        height  9
+        width   60
+      end
       group   'help'
-      height  9
-      width   60
     end
 
-    interface 'playlist' do
+    Vedeu.interface 'playlist' do
       colour  foreground: '#afd700', background: '#000000'
-      width   60
-      height  5
-      centred true
+      geometry do
+        centred!
+        width   60
+        height  5
+      end
       group   'player'
     end
 
-    interface 'progress' do
+    Vedeu.interface 'progress' do
       colour  foreground: '#005aff', background: '#000000'
-      width   60
-      height  1
-      y       { use('playlist').north(2) }
-      x       { use('playlist').left }
-      centred false
       delay   1.0
+      geometry do
+        width   60
+        height  1
+        y       { Vedeu.use('playlist').north(2) }
+        x       { Vedeu.use('playlist').left }
+      end
       group   'player'
     end
 
-    interface 'status' do
+    Vedeu.interface 'status' do
       colour  foreground: '#d70000', background: '#000000'
-      width   60
-      height  1
-      y       { use('playlist').south(1) }
-      x       { use('playlist').left }
-      centred false
+      geometry do
+        width   60
+        height  1
+        y       { Vedeu.use('playlist').south(1) }
+        x       { Vedeu.use('playlist').left }
+      end
       group   'player'
     end
 
-    keys do
-      key('p', 's')    { trigger(:show_player) }
-      key('?')         { trigger(:show_help) }
-      key(' ')         { trigger(:toggle) }   # pause/unpause
-      key('h', :left)  { trigger(:rewind) }
-      key('l', :right) { trigger(:forward) }
+    Vedeu.keymap('_global_') do
+      key('p', 's')    { Vedeu.trigger(:show_player) }
+      key('?')         { Vedeu.trigger(:show_help) }
+      key(' ')         { Vedeu.trigger(:toggle) } # pause/unpause
+      key('h', :left)  { Vedeu.trigger(:rewind) }
+      key('l', :right) { Vedeu.trigger(:forward) }
 
       key('k', :up) do
-        trigger(:_menu_prev_, 'playlist')
-        trigger(:update)
+        Vedeu.trigger(:_menu_prev_, 'playlist')
+        Vedeu.trigger(:update)
       end
 
       key('j', :down) do
-        trigger(:_menu_next_, 'playlist')
-        trigger(:update)
+        Vedeu.trigger(:_menu_next_, 'playlist')
+        Vedeu.trigger(:update)
       end
 
       key(:enter) do
-        trigger(:_menu_select_, 'playlist')
-        trigger(:select, trigger(:_menu_selected_, 'playlist'))
-        trigger(:update)
+        Vedeu.trigger(:_menu_select_, 'playlist')
+        Vedeu.trigger(:select, Vedeu.trigger(:_menu_selected_, 'playlist'))
+        Vedeu.trigger(:update)
       end
-    end
-
-    configure do
-      colour_mode 256
-      interactive!
-      raw!
     end
 
     def self.start(args = [])
