@@ -18,16 +18,16 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler',            '~> 1.6'
-  spec.add_development_dependency 'guard',              '2.6.1'
+  spec.add_development_dependency 'guard',              '2.12.6'
   spec.add_development_dependency 'guard-minitest',     '2.3.2'
   spec.add_development_dependency 'minitest',           '5.4.1'
-  spec.add_development_dependency 'minitest-reporters', '1.0.5'
+  spec.add_development_dependency 'minitest-reporters', '1.0.17'
   spec.add_development_dependency 'mocha',              '1.1.0'
   spec.add_development_dependency 'pry',                '0.10.1'
   spec.add_development_dependency 'rake',               '10.3.2'
   spec.add_development_dependency 'simplecov',          '0.9.0'
 
-  spec.add_dependency 'audite',       '0.3.0'
-  spec.add_dependency 'ruby-mp3info', '0.8.4'
-  spec.add_dependency 'vedeu',        '0.2.4'
+  spec.add_dependency 'audite',       '0.4.0'
+  spec.add_dependency 'ruby-mp3info', '0.8.6'
+  spec.add_dependency 'vedeu',        '0.4.26'
 end
