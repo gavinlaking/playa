@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
+
 unless $LOAD_PATH.include?(File.dirname(__FILE__) + '/../lib')
   $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 end
-
--> { its -> { a } }
-trap('INT') { exit! }
 
 require 'playa'
 
