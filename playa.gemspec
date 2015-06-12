@@ -17,15 +17,15 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(/^(test|spec|features)\//)
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler',            '~> 1.6'
+  spec.add_development_dependency 'bundler',            '1.9.8'
   spec.add_development_dependency 'guard',              '2.12.6'
-  spec.add_development_dependency 'guard-minitest',     '2.3.2'
-  spec.add_development_dependency 'minitest',           '5.4.1'
+  spec.add_development_dependency 'guard-minitest',     '2.4.4'
+  spec.add_development_dependency 'minitest',           '5.7.0'
   spec.add_development_dependency 'minitest-reporters', '1.0.17'
   spec.add_development_dependency 'mocha',              '1.1.0'
   spec.add_development_dependency 'pry',                '0.10.1'
-  spec.add_development_dependency 'rake',               '10.3.2'
-  spec.add_development_dependency 'simplecov',          '0.9.0'
+  spec.add_development_dependency 'rake',               '10.4.2'
+  spec.add_development_dependency 'simplecov',          '0.10.0'
 
   spec.add_dependency 'audite',       '0.4.0'
   spec.add_dependency 'ruby-mp3info', '0.8.6'
