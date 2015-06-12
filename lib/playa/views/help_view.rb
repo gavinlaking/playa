@@ -5,7 +5,7 @@ module Playa
     def show
       trigger(:_clear_)
 
-      render do
+      Vedeu.renders do
         view 'help' do
           line do
             colour foreground: '#aadd00'

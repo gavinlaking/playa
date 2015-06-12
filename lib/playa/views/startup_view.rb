@@ -5,7 +5,7 @@ module Playa
     def show
       trigger(:_clear_)
 
-      render do
+      Vedeu.renders do
         view 'progress' do
           line do
             stream do

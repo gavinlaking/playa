@@ -3,10 +3,10 @@ module Playa
     include Vedeu
 
     def initialize
-      event(:forward) { forward if playing? }
-      event(:rewind)  { rewind if playing? }
-      event(:toggle)  { toggle }
-      event(:play) do |track|
+      Vedeu.bind(:forward) { forward if playing? }
+      Vedeu.bind(:rewind)  { rewind if playing? }
+      Vedeu.bind(:toggle)  { toggle }
+      Vedeu.bind(:play) do |track|
         stop if playing?
 
         open(track)

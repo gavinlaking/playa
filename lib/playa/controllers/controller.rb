@@ -2,47 +2,47 @@ module Playa
   class Controller
     include Vedeu
 
-    event :complete do
-      trigger(:_menu_next_, 'playlist')
-      trigger(:_menu_select_, 'playlist')
-      trigger(:select, trigger(:_menu_selected_, 'playlist'))
-      trigger(:update)
+    Vedeu.bind(:complete) do
+      Vedeu.trigger(:_menu_next_, 'playlist')
+      Vedeu.trigger(:_menu_select_, 'playlist')
+      Vedeu.trigger(:select, Vedeu.trigger(:_menu_selected_, 'playlist'))
+      Vedeu.trigger(:update)
     end
 
-    event(:_initialize_) { trigger(:show_startup) }
-    event(:select)       { |track| trigger(:play, track) }
-    event(:show_startup) { StartupView.new.show }
-    event(:show_help)    { HelpView.new.show }
+    Vedeu.bind(:_initialize_) { Vedeu.trigger(:show_startup) }
+    Vedeu.bind(:select)       { |track| Vedeu.trigger(:play, track) }
+    Vedeu.bind(:show_startup) { StartupView.new.show }
+    Vedeu.bind(:show_help)    { HelpView.new.show }
 
-    event :update do
+    Vedeu.bind :update do
       PlaylistView.new.show
 
-      trigger(:_refresh_playlist_)
+      Vedeu.trigger(:_refresh_playlist_)
     end
 
     def initialize(args = [])
       @args   = args
       @player = Player.new
-      @player.events.on(:position_change) { trigger(:progress_update) }
-      @player.events.on(:complete)        { trigger(:complete) }
+      @player.events.on(:position_change) { Vedeu.trigger(:progress_update) }
+      @player.events.on(:complete)        { Vedeu.trigger(:complete) }
 
-      event :show_player do
-        trigger(:_clear_)
+      Vedeu.bind(:show_player) do
+        Vedeu.trigger(:_clear_)
 
         PlaylistView.new.show
         StatusView.new.show
         ProgressView.new(@player).show
 
-        trigger(:_refresh_group_player_)
+        Vedeu.trigger(:_refresh_group_player_)
       end
 
-      event(:progress_update, { delay: 0.5 }) do
+      Vedeu.bind(:progress_update, { delay: 0.5 }) do
         ProgressView.new(@player).show
 
-        trigger(:_refresh_progress_)
+        Vedeu.trigger(:_refresh_progress_)
       end
 
-      menu('playlist') { items(tracks) }
+      Vedeu.menu('playlist') { items(tracks) }
     end
 
     private

@@ -4,7 +4,7 @@ module Playa
     include Playa::Helpers
 
     def show
-      render do
+      Vedeu.renders do
         view 'playlist' do
           playlist_menu.each do |sel, cur, item|
             if sel && cur

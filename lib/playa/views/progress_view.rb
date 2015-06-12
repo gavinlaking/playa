@@ -22,7 +22,7 @@ module Playa
     attr_reader :player
 
     def track_loaded
-      render do
+      Vedeu.renders do
         view 'progress' do
           line do
             stream do
@@ -41,7 +41,7 @@ module Playa
     end
 
     def no_track_loaded
-      render do
+      Vedeu.renders do
         view 'progress' do
           line do
             stream do

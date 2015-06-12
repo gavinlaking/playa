@@ -3,7 +3,7 @@ module Playa
     include Vedeu
 
     def show
-      render do
+      Vedeu.renders do
         view 'status' do
           line do
             foreground('#ff0000') { text " \u{25B2}" }
