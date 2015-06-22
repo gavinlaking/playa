@@ -14,7 +14,7 @@ module Playa
     Vedeu.bind(:show_startup) { StartupView.new.show }
     Vedeu.bind(:show_help)    { HelpView.new.show }
 
-    Vedeu.bind :update do
+    Vedeu.bind(:update) do
       PlaylistView.new.show
 
       Vedeu.trigger(:_refresh_playlist_)

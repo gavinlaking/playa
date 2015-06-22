@@ -3,7 +3,7 @@ module Playa
     include Vedeu
 
     def show
-      trigger(:_clear_)
+      Vedeu.trigger(:_clear_)
 
       Vedeu.renders do
         view 'progress' do

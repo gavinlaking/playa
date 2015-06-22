@@ -1,9 +1,7 @@
 module Playa
   class HelpView
-    include Vedeu
-
     def show
-      trigger(:_clear_)
+      Vedeu.trigger(:_clear_)
 
       Vedeu.renders do
         view 'help' do
